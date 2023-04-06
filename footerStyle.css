@@ -1,4 +1,21 @@
-*{
-  box-sizing: border-box;
-  
+footer{
+  margin: 0px;
+  position: absolute  ;
+  bottom: 0px;
+  left: 0px;
+  color: white;
+  padding: 20px;
+  background-color: rgb(42, 98, 136);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+footer div.info{
+  width: 60%;
+  margin: 0px;
+  padding: 0px;
+  letter-spacing: 1.6px;
+  font-weight: bold;
+  font-size: 20px;
 }
