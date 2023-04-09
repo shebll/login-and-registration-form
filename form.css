@@ -14,7 +14,7 @@ div.wrapper{
   position: relative;
   top: 59%;
   left: 50%;
-  transform: translate(-50%,-70%);
+  transform: translate(-50%,-70%) scale(0);
   width: 500px;
   height: 750px;
   background-color: transparent;
@@ -25,10 +25,10 @@ div.wrapper{
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   backdrop-filter: blur(20px);
-  -webkit-transform: translate(-50%,-70%);
-  -moz-transform: translate(-50%,-70%);
-  -ms-transform: translate(-50%,-70%);
-  -o-transform: translate(-50%,-70%);
+  -webkit-transform: translate(-50%,-70%) scale(0);
+  -moz-transform: translate(-50%,-70%) scale(0);
+  -ms-transform: translate(-50%,-70%) scale(0);
+  -o-transform: translate(-50%,-70%) scale(0);
   box-shadow: 0 0 30px rgba(0, 0, 0 0.5);
   display: flex;
   align-items: center;
@@ -171,6 +171,7 @@ button{
   position: absolute;
   top: 0px;
   right: 0px;
+  z-index: 100;
   background-color: #162938;
   color: white;
   font-weight: bold;

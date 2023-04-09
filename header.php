@@ -19,7 +19,7 @@
         <li><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-        <li><button class="btn-login">LOGIN</button></li>
+        <li><button class="btn-login">register</button></li>
       </ul>
     </div>
   </header>
