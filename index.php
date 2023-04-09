@@ -50,7 +50,7 @@
           <a href="#" class="register-link">Register</a>
         </p>
       </div>
-    </form>  
+    </form>
     <form action="#" method="post" class="form-register">
       <h2>Register</h2>
       <div class="input-box">
