@@ -55,7 +55,7 @@ function validate($fullname,$username,$email,$phone,$address,$password,$password
                         //    $result = mysqli_query($conn, $query); 
                         
                         if ($conn->query($query) === TRUE) {
-                            echo "New record created successfully";
+                            echo "You have registered successfully!";
                         } 
                         else {
                             echo "Error: " . $query . "<br>" . $conn->error;
@@ -73,5 +73,47 @@ if (isset($_POST["submit"])) {
     $passwordRepeat = $_POST["passwordRepeat"];
     $birthdate = $_POST["birthdate"];
     validate($fullname,$username,$email,$phone,$address,$password,$passwordRepeat,$birthdate);
+}
+
+if (isset($_POST["loginSubmit"])) {
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $servername = "localhost"; // change this to your server name if it's different
+    $usernamee = "WebAssignment"; // change this to your MySQL username
+    $password = "12345678orca"; // change this to your MySQL password
+    $dbname = "assignment1"; // change this to your MySQL database name
+
+    // Create a connection
+    $conn = new mysqli($servername, $usernamee, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+        $query = "INSERT INTO users 
+        (full_name, 
+        username, 
+        email, 
+        password, 
+        address, 
+        birthdate, 
+        phone) 
+        VALUES 
+        ('$fullname',
+        '$username',
+        '$email',
+        '$password',
+        '$address',
+        '$birthdate',
+        '$phone');";
+    //    $result = mysqli_query($conn, $query); 
+                        
+    if ($conn->query($query) === TRUE) {
+        echo "You have registered successfully!";
+    } 
+    else {
+        echo "Error: " . $query . "<br>" . $conn->error;
+    }
+    $conn->close();
 }
 ?>

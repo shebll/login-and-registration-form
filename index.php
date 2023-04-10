@@ -45,7 +45,7 @@
         <label><input type="checkbox">Remember me</label>
         <a href="#">Forgot password ?</a>
       </div>
-      <button type="submit" class="loginBtn">Login</button>
+      <button type="submit" name="loginSubmit" class="loginBtn">Login</button>
       <div class="register">
         <p>
           Don`t have an account?
