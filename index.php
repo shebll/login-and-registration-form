@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,14 +14,15 @@
   <link rel="stylesheet" href="form.css">
   <title>Form</title>
 </head>
+
 <body>
   <!-- start include the header file  -->
-  <?php 
-    include 'header.php';    
-  ?>  
+  <?php
+  include 'header.php';
+  ?>
   <!-- End include the header file  -->
 
-  <!-- start the main form login   -->  
+  <!-- start the main form login   -->
   <div class="wrapper">
     <span class="close"><ion-icon name="close-outline"></ion-icon></span>
     <form action="#" method="post" class="form-login">
@@ -33,7 +35,7 @@
         <label for="">email</label>
       </div>
       <div class="input-box">
-      <span class="icon">
+        <span class="icon">
           *
         </span>
         <input type="password" required minlength="8" maxlength="15">
@@ -61,8 +63,7 @@
 
 
 
-
-    <form action="index.php" method="post" class="form-register">
+    <form action="" method="post" class="form-register">
       <h2>Register</h2>
       <div class="input-box">
         <span class="icon">
@@ -102,43 +103,46 @@
       <div class="input-box">
         <span class="icon">
           *
-        </span> 
-        <input type="text" name="address" required >
+        </span>
+        <input type="text" name="address" required>
         <label for="">address</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password"name="password" required minlength="8" maxlength="15">
+        <input type="password" name="password" required minlength="8" maxlength="15">
         <label for="">password</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name ="passwordRepeat" required minlength="8" maxlength="15">
+        <input type="password" name="passwordRepeat" required minlength="8" maxlength="15">
         <label for="">confirm password</label>
       </div>
       <button type="submit" class="loginBtn" name="submit" value="Register">register
 
-  
+
       </button>
-   
+
       <div class="login">
         <p>
           have an account?
           <a href="#" class="login-link">Login</a>
         </p>
       </div>
-    </form> 
+    </form>
 
   </div>
+  <?php
+    require_once "DB_Ops.php";
+  ?>
   <!-- start the main form login   -->
-  
+
   <!-- start include the footer file  -->
-  <?php 
-    include 'footer.php';
+  <?php
+  include 'footer.php';
   ?>
   <!-- end include the footer file  -->
 
@@ -150,4 +154,5 @@
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <!-- script for icons -->
 </body>
+
 </html>
