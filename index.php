@@ -31,14 +31,14 @@
         <span class="icon">
           *
         </span>
-        <input type="email" required>
+        <input type="email" name="email" >
         <label for="">email</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" required minlength="8" maxlength="15">
+        <input type="password" name="password"  minlength="8" maxlength="15">
         <label for="">password</label>
       </div>
       <div class="remember">
@@ -69,56 +69,56 @@
         <span class="icon">
           *
         </span>
-        <input type="text" name="fullname" required>
+        <input type="text" name="fullname" >
         <label for="">full name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="username" required>
+        <input type="text" name="username" >
         <label for="">user name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="email" name="email" required>
+        <input type="email" name="email" >
         <label for="">email</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="date" name="birthdate" required>
+        <input type="date" name="birthdate" >
         <label for=""></label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="phone" required minlength="11" maxlength="11">
+        <input type="text" name="phone"  minlength="11" maxlength="11">
         <label for="">phone</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="address" required>
+        <input type="text" name="address" >
         <label for="">address</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name="password" required minlength="8" maxlength="15">
+        <input type="password" name="password"  minlength="8" maxlength="15">
         <label for="">password</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name="passwordRepeat" required minlength="8" maxlength="15">
+        <input type="password" name="passwordRepeat"  minlength="8" maxlength="15">
         <label for="">confirm password</label>
       </div>
       <button type="submit" class="loginBtn" name="submit" value="Register">register
