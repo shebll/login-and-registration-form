@@ -23,7 +23,7 @@
   <!-- start the main form login   -->  
   <div class="wrapper">
     <span class="close"><ion-icon name="close-outline"></ion-icon></span>
-    <form action="#" method="post" class="form-login">
+    <form action="" method="post" class="form-login">
       <h2>login</h2>
       <div class="input-box">
         <span class="icon">
@@ -51,7 +51,7 @@
         </p>
       </div>
     </form>  
-    <form action="#" method="post" class="form-register">
+    <form action="" method="post" class="form-register">
       <h2>Register</h2>
       <div class="input-box">
         <span class="icon">
@@ -78,8 +78,8 @@
         <span class="icon">
           *
         </span>
-        <input type="date" required>
-        <label for=""></label>
+        <input type="date" id="date1" required>
+        <span class="IMDPAPIBtn">actors</span>
       </div>
       <div class="input-box">
         <span class="icon">
@@ -109,7 +109,7 @@
         <input type="password" required minlength="8" maxlength="15">
         <label for="">confirm password</label>
       </div>
-      <button type="submit" class="loginBtn">register</button>
+      <button type="submit" class="registerBtn">register</button>
       <div class="login">
         <p>
           have an account?
@@ -117,7 +117,11 @@
         </p>
       </div>
     </form> 
-
+  </div>
+  <div class="popupApi">
+    <div class="title"></div>
+    <div class="events">
+    </div>
   </div>
   <!-- start the main form login   -->
   
@@ -129,6 +133,7 @@
 
   <!-- js functions -->
   <script src="main.js"></script>
+  <script src="api.js"></script>
   <!-- js functions -->
   <!-- script for icons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
