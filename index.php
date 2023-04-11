@@ -90,9 +90,13 @@
         <span class="icon">
           *
         </span>
-        <input type="date" name="birthdate" required>
-        <label for=""></label>
+      
+        <input type="date" name="birthdate" id="birthdate" required> 
+        <br>
+        <button id="fetchactor" type="button" name="find">Actors </button>
+        <!-- <label for=""></label> -->
       </div>
+      <br>
       <div class="input-box">
         <span class="icon">
           *
@@ -122,10 +126,7 @@
         <label for="">confirm password</label>
       </div>
       <button type="submit" class="loginBtn" name="submit" value="Register">register
-
-
       </button>
-
       <div class="login">
         <p>
           have an account?
@@ -148,6 +149,7 @@
 
   <!-- js functions -->
   <script src="main.js"></script>
+ 
   <!-- js functions -->
   <!-- script for icons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

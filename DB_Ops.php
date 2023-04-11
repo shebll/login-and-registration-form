@@ -1,3 +1,5 @@
+
+
 <?php 
 
 function validate($fullname,$username,$email,$phone,$address,$password,$passwordRepeat,$birthdate){
@@ -73,6 +75,7 @@ function validate($fullname,$username,$email,$phone,$address,$password,$password
                         if($flagg==true){
                             if ($conn->query($query) === TRUE) {
                                 echo "You have registered successfully!";
+                                echo $birthdate;
                             } 
                             else {
                                 echo "Error: " . $query . "<br>" . $conn->error;
