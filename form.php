@@ -14,6 +14,7 @@
   <title>Form</title>
 </head>
 <body>
+
   <!-- start include the header file  -->
   <?php 
     include 'header.php';    
@@ -21,8 +22,9 @@
   <!-- End include the header file  -->
 
   <!-- start the main form login   -->  
+
   <div class="wrapper">
-    <span class="close"><ion-icon name="close-outline"></ion-icon></span>
+    <span class="close">X</span>
     <form action="" method="post" class="form-login">
       <h2>login</h2>
       <div class="input-box">
@@ -57,56 +59,64 @@
         <span class="icon">
           *
         </span>
-        <input type="text" required>
+        <input type="text" id="fullName" required onfocusout="fullNameValidation()">
+        <p class="hint">hi</p>
         <label for="">full name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" required>
+        <input type="text" id="userName" required onfocusout="userNameValidation()">
+        <p class="hint">hi</p>
         <label for="">user name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="email" required>
+        <input type="email" required id="email" required onfocusout="emailValidation()">
+        <p class="hint">hi</p>
         <label for="">email</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="date" id="date1" required>
+        <input type="date" required id="date" required onfocusout="dateValidation()">
+        <p class="hint">hi</p>
         <span class="IMDPAPIBtn">actors</span>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" required minlength="11" maxlength="11">
+        <input type="text" required minlength="11" maxlength="11"  id="phone" required onfocusout="phoneValidation()">
+        <p class="hint">hi</p>
         <label for="">phone</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span> 
-        <input type="text" required >
+        <input type="text" required  id="address" required onfocusout="addressValidation()">
+        <p class="hint">hi</p>
         <label for="">address</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" required minlength="8" maxlength="15">
+        <input type="password" required minlength="8" maxlength="15" id="password" required onfocusout="passwordValidation()">
+        <p class="hint">hi</p>
         <label for="">password</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" required minlength="8" maxlength="15">
+        <input type="password" required minlength="8" maxlength="15" id="confirmPassword" required onfocusout="confirmPasswordValidation()">
+        <p class="hint">hi</p>
         <label for="">confirm password</label>
       </div>
       <button type="submit" class="registerBtn">register</button>
@@ -118,12 +128,15 @@
       </div>
     </form> 
   </div>
+  <!-- start popupApi -->
   <div class="popupApi">
     <div class="title"></div>
     <div class="events">
-    </div>
+      </div>
   </div>
-  <!-- start the main form login   -->
+  <!-- start popupApi -->
+
+  <!-- end the main form login   -->
   
   <!-- start include the footer file  -->
   <?php 
@@ -136,8 +149,6 @@
   <script src="api.js"></script>
   <!-- js functions -->
   <!-- script for icons -->
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <!-- script for icons -->
 </body>
 </html>
