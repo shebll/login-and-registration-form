@@ -1,18 +1,18 @@
 <?php
 
- if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-     $b=$_POST['b'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $b = $_POST['b'];
     $date = new DateTime($b);
 
     $day = $date->format('d'); 
     $month = $date->format('m'); 
-    $year = $date->format('Y'); 
-    GetNames($month,$day);
     
+    echo json_encode(GetNames($month,$day));    
 }
 
 
 function GetNames($month, $day){
+
     $curl = curl_init();
 
     curl_setopt_array($curl, [
@@ -39,21 +39,32 @@ function GetNames($month, $day){
     if ($err) {
         return "cURL Error #:" . $err;
     } else {
-        GetBio($response);
+        $phpResult = json_decode($response);
+        $actorsNameList = array();
+        
+        for ($i = 0; $i < 5 ; $i++) {
+            
+            $nameAPI = $phpResult[$i];
+            $substring = '/name/';
+            $nameAPI = substr($nameAPI, strlen($substring));
+            $nameAPI = substr($nameAPI, 0, -1);
+        
+            error_log(print_r($nameAPI, true));
+
+            array_push($actorsNameList,GetBio($nameAPI));
+
+        }
+        return $actorsNameList;
     }
 }
 
-//--------------------------------------------------------------------------------------------------------------------
 
 
-function GetBio($actors){
-    $actornames = array();
-    foreach($actors as $actor) {
-        sleep(0.2);
+function GetBio($actor){
+    sleep(0.2);
 
-     $curl = curl_init();
-
-     curl_setopt_array($curl, [
+    $curl = curl_init();
+    curl_setopt_array($curl, [
         CURLOPT_URL => "https://online-movie-database.p.rapidapi.com/actors/get-bio?nconst=$actor",
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_FOLLOWLOCATION => true,
@@ -66,26 +77,19 @@ function GetBio($actors){
             "X-RapidAPI-Host: online-movie-database.p.rapidapi.com",
             "X-RapidAPI-Key: a36d152b57mshc729389e1f91e23p1ea9e0jsnbeea7a615574"
         ],
-     ]);
+    ]);
     
      $response = curl_exec($curl);
      $err = curl_error($curl);
     
      curl_close($curl);
-     $data = json_decode($response, true);
     
      if ($err) {
         return "cURL Error #:" . $err;
-     } else {
-
-        $name = $data['name'];
-        array_push($actornames, $name);
-        // return $response;
-     }
+     } 
+     else {
+        $phpResult = json_decode($response);
+        $actorName = $phpResult->name;
+        return $actorName;
     }
-    echo array('response' => $response);
-
-
-    return $actornames;
-    
 }
