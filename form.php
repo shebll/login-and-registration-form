@@ -69,56 +69,56 @@
         <span class="icon">
           *
         </span>
-        <input type="text" name="fullname" required>
+        <input type="text" name="fullname" id="fullname" required>
         <label for="">full name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="username" required>
+        <input type="text" name="username" id="username" required>
         <label for="">user name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="email" name="email" required>
+        <input type="email" name="email" id="email" required>
         <label for="">email</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="date" id="birthdate" required>
+        <input type="date" id="birthdate" id="birthdate" required>
         <span class="IMDPAPIBtn">actors</span>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="phone" required minlength="11" maxlength="11">
+        <input type="text" name="phone" id="phone" required minlength="11" maxlength="11">
         <label for="">phone</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="address" required>
+        <input type="text" name="address" id="address" required>
         <label for="">address</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name="password" required minlength="8" maxlength="15">
+        <input type="password" name="password" id="password" required minlength="8" maxlength="15">
         <label for="">password</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name="passwordRepeat" required minlength="8" maxlength="15">
+        <input type="password" name="passwordRepeat" id="confirmPassword" required minlength="8" maxlength="15">
         <label for="">confirm password</label>
       </div>
       <button type="submit" class="registerBtn" name="submit" value="Register">Register
