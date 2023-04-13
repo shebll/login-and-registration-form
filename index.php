@@ -139,9 +139,11 @@
   <?php
     require_once "DB_Ops.php";
   ?>
-  <!-- start the main form login   -->
-
-  <!-- start include the footer file  -->
+  <div class="popupApi">
+    <div class="title"></div>
+    <div class="events">
+      </div>
+  </div>
   <?php
   include 'footer.php';
   ?>

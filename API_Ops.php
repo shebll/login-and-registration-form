@@ -1,15 +1,24 @@
 <?php
 
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+//     $name=$_POST['name'];
+//     echo "Hello, $name!!";
+// }
+
+
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $b = $_POST['b'];
-    $date = new DateTime($b);
+    // echo json_encode($arr);
+    // echo json_encode(GetNames(9,23));
+    $month = $_POST['month'];
+    $day = $_POST['day'];
 
-    $day = $date->format('d'); 
-    $month = $date->format('m'); 
-    
-    echo json_encode(GetNames($month,$day));    
+    error_log($month);
+    error_log($day);
+
+    echo json_encode(GetNames($month,$day));
+    // echo GetBio(GetNames(9,23));
 }
-
 
 function GetNames($month, $day){
 

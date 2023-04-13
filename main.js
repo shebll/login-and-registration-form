@@ -48,10 +48,60 @@ document.getElementById('fetchactor').addEventListener('click', function() {
 
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      // Display the result
-      document.getElementById('birthdate').innerHTML = this.responseText;
+      // document.getElementById('birthdate').innerHTML = this.responseText;
+      console.log(JSON.parse(this.responseText));
+
+      let obj = JSON.parse(this.responseText);
+      let div = document.createElement("div");
+      // for(let i = 0; i <5;i++){
+          let actorName = document.createTextNode(obj[0]);
+          div.appendChild(actorName);
+          document.querySelector(
+            ".popupApi .title"
+          ).innerHTML = `Born in ${day}/${month}`;
+          document.querySelector(".popupApi .events").appendChild(div);
+      // }
       
     }
   };
   
+});
+
+let button = document.getElementById('fetchactor');
+
+
+
+button.addEventListener('click', function(){
+
+    var xhttp = new XMLHttpRequest();
+    let birthdate=document.getElementById('birthdate').value;
+    console.log(birthdate);
+    var d = new Date( birthdate );
+    let month = d.getMonth() + 1 ;
+    let day = d.getDate();
+    console.log(month);
+    console.log(day);
+    
+    xhttp.open('POST', 'API_Ops.php', true);
+    xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    xhttp.send('month=' + month + '&day=' + day);
+
+    xhttp.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) {
+            // console.log(typeof(this.responseText));
+
+            console.log(this.responseText);
+            console.log(JSON.parse(this.responseText));
+            let obj = JSON.parse(this.responseText);
+
+            let div = document.createElement("div");
+            let actorName = document.createTextNode(obj[0]);
+            div.appendChild(actorName);
+            document.querySelector(
+              ".popupApi .title"
+            ).innerHTML = `Born in ${day}/${month}`;
+            document.querySelector(".popupApi .events").appendChild(div);
+        }
+    }
+
 });
