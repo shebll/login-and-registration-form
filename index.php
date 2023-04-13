@@ -90,13 +90,9 @@
         <span class="icon">
           *
         </span>
-      
-        <input type="date" name="birthdate" id="birthdate" required> 
-        <br>
-        <button id="fetchactor" type="button" name="find">Actors </button>
-        <!-- <label for=""></label> -->
+        <input type="date" id="birthdate" required>
+        <span class="IMDPAPIBtn">actors</span>
       </div>
-      <br>
       <div class="input-box">
         <span class="icon">
           *
@@ -125,7 +121,7 @@
         <input type="password" name="passwordRepeat" required minlength="8" maxlength="15">
         <label for="">confirm password</label>
       </div>
-      <button type="submit" class="loginBtn" name="submit" value="Register">register
+      <button type="submit" class="registerBtn" name="submit" value="Register">Register
       </button>
       <div class="login">
         <p>
