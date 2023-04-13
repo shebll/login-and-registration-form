@@ -69,56 +69,56 @@
         <span class="icon">
           *
         </span>
-        <input type="text" name="fullname" id="fullname" required>
+        <input type="text" name="fullname" id="fullname" onfocusout="fullNameValidation()" required>
         <label for="">full name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="username" id="username" required>
+        <input type="text" name="username" id="username" onfocusout="userNameValidation()" required>
         <label for="">user name</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="email" name="email" id="email" required>
+        <input type="email" name="email" id="email" onfocusout="emailValidation()" required>
         <label for="">email</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="date" id="birthdate" id="birthdate" required>
+        <input type="date" id="birthdate" id="birthdate" onfocusout="dateValidation()" required>
         <span class="IMDPAPIBtn">actors</span>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="phone" id="phone" required minlength="11" maxlength="11">
+        <input type="text" name="phone" id="phone" required minlength="11" maxlength="11" onfocusout="phoneValidation()"> 
         <label for="">phone</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="text" name="address" id="address" required>
+        <input type="text" name="address" id="address" required onfocusout="addressValidation()">
         <label for="">address</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name="password" id="password" required minlength="8" maxlength="15">
+        <input type="password" name="password" id="password" required minlength="8" maxlength="15" onfocusout="passwordValidation()">
         <label for="">password</label>
       </div>
       <div class="input-box">
         <span class="icon">
           *
         </span>
-        <input type="password" name="passwordRepeat" id="confirmPassword" required minlength="8" maxlength="15">
+        <input type="password" name="passwordRepeat" id="confirmPassword" required minlength="8" maxlength="15" onfocusout="confirmPasswordValidation()">
         <label for="">confirm password</label>
       </div>
       <button type="submit" class="registerBtn" name="submit" value="Register">Register
