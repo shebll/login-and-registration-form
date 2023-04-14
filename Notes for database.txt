@@ -1,0 +1,16 @@
+database name --> assignment1
+table users with there attri
+should be named like this
+
+use assignment1;
+CREATE TABLE users (
+   full_name VARCHAR(100),
+   username VARCHAR(55),
+   email VARCHAR(50),
+   password VARCHAR(30),
+   address VARCHAR(100),
+   birthdate date,
+   phone VARCHAR(20),
+   image VARCHAR(40),
+   PRIMARY KEY(username)
+);

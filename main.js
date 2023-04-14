@@ -1,5 +1,7 @@
 let btnOpen = document.querySelector(".btn-login");
+let btn = document.querySelector(".btn-login");
 let close = document.querySelector(".close");
+
 let btnLoginLink = document.querySelector(".login-link");
 let btnRegisterLink = document.querySelector(".register-link");
 let loginForm = document.querySelector(".form-login");
@@ -34,7 +36,7 @@ btnRegisterLink.addEventListener("click", () => {
 let fullName = document.getElementById("fullName");
 let userName = document.getElementById("userName");
 let email = document.getElementById("email");
-let date = document.getElementById("date");
+let date = document.getElementById("birthdate");
 let phone = document.getElementById("phone");
 let address = document.getElementById("address");
 let password = document.getElementById("password");
@@ -44,15 +46,14 @@ let confirmPassword = document.getElementById("confirmPassword");
 
 /////////////// client validation by js /////////////////
 function fullNameValidation() {
-  let letters =
-    /([A-Za-z]{3,16})([ ]{0,1})([A-Za-z]{3,16})([ ]{0,1})?([A-Za-z]{3,16})?/g;
-  if (fullName.value.match(letters) != null) {
+  let letters = /([^a-z])+$/gi;
+  if (fullName.value.match(letters) == null && fullName.value != "") {
     if (fullName.previousElementSibling != null) {
       fullName.previousElementSibling.remove();
     }
     fullName.nextElementSibling.style.transform = "scale(0)";
   } else {
-    fullName.nextElementSibling.innerHTML = "full name at least two names";
+    fullName.nextElementSibling.innerHTML = "full name only chars";
     fullName.nextElementSibling.style.transform = "scale(1)";
     fullName.value = "";
   }
@@ -63,10 +64,10 @@ function userNameValidation() {
     if (userName.previousElementSibling != null) {
       userName.previousElementSibling.remove();
     }
-    userName.nextElementSibling.style.transform = "scale(0)";
+    // userName.nextElementSibling.style.transform = "scale(0)";
   } else {
-    userName.nextElementSibling.innerHTML = "user name should be unique";
-    userName.nextElementSibling.style.transform = "scale(1)";
+    // userName.nextElementSibling.innerHTML = "user name should be unique";
+    // userName.nextElementSibling.style.transform = "scale(1)";
     userName.value = "";
   }
 }
@@ -117,27 +118,28 @@ function dateValidation() {
   }
 }
 function addressValidation() {
-  if (address.value != null) {
-    if (password.previousElementSibling != null) {
-      password.previousElementSibling.remove();
+  if (address.value !== "") {
+    if (address.previousElementSibling !== "") {
+      address.previousElementSibling.remove();
     }
-    password.nextElementSibling.style.transform = "scale(0)";
+    address.nextElementSibling.style.transform = "scale(0)";
   } else {
-    password.nextElementSibling.innerHTML = "enter address";
-    password.nextElementSibling.style.transform = "scale(1)";
-    password.value = "";
+    address.nextElementSibling.innerHTML = "enter address";
+    address.nextElementSibling.style.transform = "scale(1)";
+    address.value = "";
   }
 }
 function passwordValidation() {
   let letters =
-    /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[-\#\$\.\%\&\*])(?=.*[a-zA-Z]).{8,16}$/;
+    /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[A-Z])(?=.*[-\#\$\.\%\&\*])(?=.*[a-zA-Z]).{1,11}$/;
   if (password.value.match(letters) != null) {
     if (password.previousElementSibling != null) {
       password.previousElementSibling.remove();
     }
     password.nextElementSibling.style.transform = "scale(0)";
   } else {
-    password.nextElementSibling.innerHTML = "at least 8 char (uppercase)";
+    password.nextElementSibling.innerHTML =
+      "at least 1(uppercase + special char)";
     password.nextElementSibling.style.transform = "scale(1)";
     password.value = "";
   }
@@ -157,9 +159,114 @@ function confirmPasswordValidation() {
 
 /////////////// get elements inputs /////////////////
 
-registerForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+// let acc= document.getElementById('fetchactor');
+// acc.addEventListener("click", () => {
+
+//   });
+
+// document.getElementById('fetchactor').addEventListener('click', function() {
+
+//   // Make an AJAX call to the PHP script
+//   var xhttp = new XMLHttpRequest();
+//   let b=document.getElementById('birthdate').value;
+
+//   xhttp.open('POST', 'API_Ops.php', true);
+//   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+//   xhttp.send('birthdate=' + b);
+
+//   xhttp.onreadystatechange = function() {
+//     if (this.readyState == 4 && this.status == 200) {
+//       // document.getElementById('birthdate').innerHTML = this.responseText;
+//       console.log(JSON.parse(this.responseText));
+
+//       let obj = JSON.parse(this.responseText);
+//       let div = document.createElement("div");
+//       // for(let i = 0; i <5;i++){
+//           let actorName = document.createTextNode(obj[0]);
+//           div.appendChild(actorName);
+//           document.querySelector(
+//             ".popupApi .title"
+//           ).innerHTML = `Born in ${day}/${month}`;
+//           document.querySelector(".popupApi .events").appendChild(div);
+//       // }
+
+//     }
+//   };
+
+// });
+
+let button = document.querySelector(
+  ".form-register .input-box span.IMDPAPIBtn"
+);
+
+let popupApi = document.querySelector(".popupApi");
+
+button.addEventListener("click", function () {
+  var xhttp = new XMLHttpRequest();
+  let birthdate = document.getElementById("birthdate").value;
+  if (birthdate === "") {
+    window.alert("Enter your birthdate");
+  } else {
+    console.log(birthdate);
+    var d = new Date(birthdate);
+    let month = d.getMonth() + 1;
+    let day = d.getDate();
+    console.log(month);
+    console.log(day);
+    popupApi.style.right = "100px";
+    xhttp.open("POST", "API_Ops.php", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("month=" + month + "&day=" + day);
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText);
+        console.log(JSON.parse(this.responseText));
+        let obj = JSON.parse(this.responseText);
+        for (let i = 0; i < 5; i++) {
+          let div = document.createElement("div");
+          let actorName = document.createTextNode(obj[i]);
+          div.appendChild(actorName);
+          document.querySelector(
+            ".popupApi .title"
+          ).innerHTML = `Born in ${day}/${month}`;
+          document.querySelector(".popupApi .events").appendChild(div);
+        }
+      }
+    };
+  }
 });
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+//////////////// Ajax ///////////////
+function AJAXSerNameValidation() {
+  let xhttp = new XMLHttpRequest();
+  let uName = userName.value;
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      // console.log(this.responseText);
+      // console.log(JSON.parse(this.responseText));
+      let obj = JSON.parse(this.responseText);
+      if (obj == "t") {
+        document.querySelector(".true").classList.remove("hide");
+        document.querySelector(".false").classList.add("hide");
+      } else {
+        document.querySelector(".true").classList.add("hide");
+        document.querySelector(".false").classList.remove("hide");
+        // window.alert("false");
+      }
+    }
+  };
+  xhttp.open("POST", "DB_Ops.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("userName=" + uName);
+}
+userName.addEventListener("keyup", () => {
+  AJAXSerNameValidation();
 });
+//////////////// Ajax ///////////////
+//
+// registerForm.addEventListener("submit", (e) => {
+//   //e.preventDefault();
+// });
+// loginForm.addEventListener("submit", (e) => {
+//   // e.preventDefault();
+// });

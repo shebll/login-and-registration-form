@@ -54,7 +54,7 @@ btnAPI.addEventListener("click", () => {
               div.appendChild(actorName);
               document.querySelector(
                 ".popupApi .title"
-              ).innerHTML = `porn in ${day}/${month}`;
+              ).innerHTML = `born in ${day}/${month}`;
               document.querySelector(".popupApi .events").appendChild(div);
             })
             .catch((err) => console.error(err));

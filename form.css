@@ -3,7 +3,7 @@ body{
   margin: 0px;
   padding: 0px;
   font-family: 'Roboto', sans-serif;  
-  background-image: url(imgs/background.jpg);
+  background-image: url(imgs/wallpaperflare.com_wallpaper_4.jpg);
   background-size:cover ;
   background-position:center ;
   background-repeat: no-repeat;
@@ -265,4 +265,33 @@ button{
   -ms-transform: scale(0);
   -o-transform: scale(0);
   transform-origin: right;
+}
+.alert.alert-danger{
+  background-color: #162938;
+  color: white;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  left:  50%;
+  top: 50%;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.false,
+.true{
+  width: 24px;
+}
+.hide{
+  display: none;
+}
+.form-register .input-box:nth-child(3){
+  display: flex !important ;
+  gap: 10px;
 }
