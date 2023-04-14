@@ -159,82 +159,8 @@ function confirmPasswordValidation() {
 
 /////////////// get elements inputs /////////////////
 
-// let acc= document.getElementById('fetchactor');
-// acc.addEventListener("click", () => {
-
-//   });
-
-// document.getElementById('fetchactor').addEventListener('click', function() {
-
-//   // Make an AJAX call to the PHP script
-//   var xhttp = new XMLHttpRequest();
-//   let b=document.getElementById('birthdate').value;
-
-//   xhttp.open('POST', 'API_Ops.php', true);
-//   xhttp.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-//   xhttp.send('birthdate=' + b);
-
-//   xhttp.onreadystatechange = function() {
-//     if (this.readyState == 4 && this.status == 200) {
-//       // document.getElementById('birthdate').innerHTML = this.responseText;
-//       console.log(JSON.parse(this.responseText));
-
-//       let obj = JSON.parse(this.responseText);
-//       let div = document.createElement("div");
-//       // for(let i = 0; i <5;i++){
-//           let actorName = document.createTextNode(obj[0]);
-//           div.appendChild(actorName);
-//           document.querySelector(
-//             ".popupApi .title"
-//           ).innerHTML = `Born in ${day}/${month}`;
-//           document.querySelector(".popupApi .events").appendChild(div);
-//       // }
-
-//     }
-//   };
-
-// });
-
-let button = document.querySelector(
-  ".form-register .input-box span.IMDPAPIBtn"
-);
-
-let popupApi = document.querySelector(".popupApi");
-
-button.addEventListener("click", function () {
-  var xhttp = new XMLHttpRequest();
-  let birthdate = document.getElementById("birthdate").value;
-  if (birthdate === "") {
-    window.alert("Enter your birthdate");
-  } else {
-    console.log(birthdate);
-    var d = new Date(birthdate);
-    let month = d.getMonth() + 1;
-    let day = d.getDate();
-    console.log(month);
-    console.log(day);
-    popupApi.style.right = "100px";
-    xhttp.open("POST", "API_Ops.php", true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("month=" + month + "&day=" + day);
-
-    xhttp.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        console.log(this.responseText);
-        console.log(JSON.parse(this.responseText));
-        let obj = JSON.parse(this.responseText);
-        for (let i = 0; i < 5; i++) {
-          let div = document.createElement("div");
-          let actorName = document.createTextNode(obj[i]);
-          div.appendChild(actorName);
-          document.querySelector(
-            ".popupApi .title"
-          ).innerHTML = `Born in ${day}/${month}`;
-          document.querySelector(".popupApi .events").appendChild(div);
-        }
-      }
-    };
-  }
+registerForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 });
 //////////////// Ajax ///////////////
 function AJAXSerNameValidation() {
