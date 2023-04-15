@@ -25,7 +25,7 @@
   <!-- start the main form login   -->
   <div class="wrapper">
     <span class="close">X</span>
-    <form action="x.html" method="post" class="form-login">
+    <form action="" method="post" class="form-login">
       <h2>login</h2>
       <div class="input-box">
         <span class="icon">
