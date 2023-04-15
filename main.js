@@ -46,14 +46,23 @@ let confirmPassword = document.getElementById("confirmPassword");
 
 /////////////// client validation by js /////////////////
 function fullNameValidation() {
-  let letters = /([^a-z])+$/gi;
-  if (fullName.value.match(letters) == null && fullName.value != "") {
+  let letters = /^([^0-9]*)$/g; /// avoid number
+  var regex = /a-zA-Z0-9!@#\$%\^\&*\)\(+=._-/g;
+  let le = /[^a-zA-Z\d\s]/gm; /// avoid special char
+  let numOfNames = fullName.value.split(" ").length;
+  console.log(numOfNames);
+  if (
+    fullName.value.match(letters) != null &&
+    fullName.value.match(le) == null &&
+    fullName.value != "" &&
+    numOfNames >= 2
+  ) {
     if (fullName.previousElementSibling != null) {
       fullName.previousElementSibling.remove();
     }
     fullName.nextElementSibling.style.transform = "scale(0)";
   } else {
-    fullName.nextElementSibling.innerHTML = "full name only chars";
+    fullName.nextElementSibling.innerHTML = "full name only chars (2 names)";
     fullName.nextElementSibling.style.transform = "scale(1)";
     fullName.value = "";
   }
@@ -263,6 +272,51 @@ userName.addEventListener("keyup", () => {
   AJAXSerNameValidation();
 });
 //////////////// Ajax ///////////////
+
+////////////////////image upload//////////////////
+// function showImage(src, target) {
+//   var fr = new FileReader();
+
+//   fr.onload = function () {
+//     target.src = fr.result;
+//   };
+//   fr.readAsDataURL(src.files[0]);
+// }
+// function putImage() {
+//   var src = document.getElementById("select_image");
+//   var target = document.getElementById("target");
+//   showImage(src, target);
+// }
+function putImage() {
+  // Get the file input element
+  var fileInput = document.getElementById("select_image");
+  console.log(fileInput);
+
+  // Create a new FormData object
+  var formData = new FormData();
+  console.log(formData);
+
+  // Add the file to the FormData object
+  formData.append("file", fileInput.files[0]);
+  console.log(formData);
+
+  // Send the file to the server using AJAX
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", "Upload.php", true);
+  xhr.onload = function () {
+    if (xhr.status === 200) {
+      // File uploaded successfully
+      console.log(xhr.responseText);
+    } else {
+      // Error uploading file
+      console.error(xhr.responseText);
+    }
+  };
+  xhr.send("image=" + formData);
+  // xhr.send(formData);
+}
+////////////////////image upload//////////////////
+
 //
 // registerForm.addEventListener("submit", (e) => {
 //   //e.preventDefault();
