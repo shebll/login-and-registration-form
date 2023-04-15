@@ -1,13 +1,13 @@
 <?php
 // Check if image file was uploaded
-if (isset($_FILES['image'])) {
+if (isset($_POST["submit"])) {
     // Get image information
     $image_name = $_FILES['image']['name'];
     $image_temp = $_FILES['image']['tmp_name'];
     $image_type = $_FILES['image']['type'];
     $image_size = $_FILES['image']['size'];
     $image_error = $_FILES['image']['error'];
-
+    $birthdate = $_POST["birthdate"];
     // Check for errors in the uploaded file
     if ($image_error === UPLOAD_ERR_OK) {
         // Define the directory to save the image in
@@ -30,4 +30,4 @@ if (isset($_FILES['image'])) {
           echo ("Error uploading image.");
     }
 }
-?>
+?>  

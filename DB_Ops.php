@@ -1,5 +1,5 @@
 <?php 
-function validate($fullname,$username,$email,$phone,$address,$password,$passwordRepeat,$birthdate){
+function validate($fullname,$username,$email,$phone,$address,$password,$passwordRepeat,$birthdate,$image_name){
     $errors=array();
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
                 // print_r($_POST);
@@ -60,7 +60,8 @@ function validate($fullname,$username,$email,$phone,$address,$password,$password
                             password, 
                             address, 
                             birthdate, 
-                            phone) 
+                            phone,
+                            image) 
                             VALUES 
                             ('$fullname',
                             '$username',
@@ -68,7 +69,8 @@ function validate($fullname,$username,$email,$phone,$address,$password,$password
                             '$password',
                             '$address',
                             '$birthdate',
-                            '$phone');";
+                            '$phone',
+                            '$image_name');";
                         //    $result = mysqli_query($conn, $query); 
                         
                         if($flagg==true){
@@ -95,13 +97,14 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"];
     $passwordRepeat = $_POST["passwordRepeat"];
     $birthdate = $_POST["birthdate"];
-    validate($fullname,$username,$email,$phone,$address,$password,$passwordRepeat,$birthdate);
+    require_once "Upload.php";
+    $image_name = $_FILES['image']['name'];
+    validate($fullname,$username,$email,$phone,$address,$password,$passwordRepeat,$birthdate,$image_name);
 }
 
 if (isset($_POST["loginSubmit"])) {
     $email = $_POST["email"];
-    $password = $_POST["password"];
-    
+    $password = $_POST["password"];    
     $servername = "localhost"; // change this to your server name if it's different
     $usernamee = "WebAssignment"; // change this to your MySQL username
     $passwordd = "12345678orca"; // change this to your MySQL password

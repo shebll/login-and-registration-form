@@ -25,7 +25,7 @@
   <!-- start the main form login   -->
   <div class="wrapper">
     <span class="close">X</span>
-    <form action="user.html" method="post" class="form-login">
+    <form action="user.html" method="post" class="form-login" enctype="multipart/form-data">
       <h2>login</h2>
       <div class="input-box">
         <span class="icon">
@@ -53,7 +53,7 @@
         </p>
       </div>
     </form>
-    <form action="#" method="post" class="form-register">
+    <form action="#" method="post" class="form-register" enctype="multipart/form-data">
       <h2>Register</h2>
       <div class="input-box">
         <span class="icon">
@@ -122,7 +122,7 @@
         <label for="">confirm password</label>
       </div>
       <div class="input-box">
-        <input type="file" class="custom-file-input" id="select_image" name="image" onchange="putImage()" />
+        <input type="file" required class="custom-file-input" id="select_image" name="image" onchange="putImage()" />
       </div>
       <button type="submit" class="registerBtn" name="submit" value="Register">Register
       </button>
